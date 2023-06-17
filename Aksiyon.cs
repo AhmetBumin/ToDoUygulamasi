@@ -189,6 +189,7 @@ namespace ToDo
                     Console.WriteLine(" ");
                     cardsintodo.RemoveAt(i);
                     kartBulundu = false;
+                    i--;//eleman sırası değiştiğinden bir önceki elemana tekrar bakılır.
                 }
             }
             for (int i = 0; i <cardsinprogress.Count; i++)
@@ -203,6 +204,7 @@ namespace ToDo
                     Console.WriteLine(" ");
                     cardsinprogress.RemoveAt(i);
                     kartBulundu = false;
+                    i--;//eleman sırası değiştiğinden bir önceki elemana tekrar bakılır.
                 }
             }
             for (int i = 0; i < cardsindone.Count; i++)
@@ -217,6 +219,7 @@ namespace ToDo
                     Console.WriteLine(" ");
                     cardsindone.RemoveAt(i);
                     kartBulundu = false;
+                    i--;//eleman sırası değiştiğinden bir önceki elemana tekrar bakılır.
                 }
             }
             if (kartBulundu)
