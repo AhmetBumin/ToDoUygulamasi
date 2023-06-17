@@ -258,12 +258,14 @@ namespace ToDo
         }
         public void KartTasimak()
         {
+            bayrak8:
             Console.Clear();
             Console.Write("Öncelikle taşımak istediğiniz kartı seçmeniz gerekiyor.\nLütfen kart başlığını yazınız: ");
             string cevapBaslik = Console.ReadLine();
             Console.WriteLine(" ");
 
             bool kartBulundu = true;
+            bool kartBulunmadı = true;
             for (int i = 0; i < cardsintodo.Count; i++)
             {
                 if (cardsintodo[i].baslik == cevapBaslik)
@@ -276,7 +278,7 @@ namespace ToDo
                     Console.WriteLine("Büyüklük: " + cardsintodo[i].buyukluk);
                     Console.WriteLine(" ");
                     System.Threading.Thread.Sleep(2000);
-
+                    kartBulunmadı = false;
                     bayrak9:
                     Console.WriteLine("(1)Bulunan kartı taşıma işlemine devamı için\n(2) diğer kartlara bakmak için");
                     string secim = Console.ReadLine();
@@ -335,7 +337,7 @@ namespace ToDo
                         Console.WriteLine("Büyüklük: " + cardsinprogress[i].buyukluk);
                         Console.WriteLine(" ");
                         System.Threading.Thread.Sleep(2000);
-
+                        kartBulunmadı = false;
                     bayrak9:
                         Console.WriteLine("(1)Bulunan kartı taşıma işlemine devamı için\n(2) diğer kartlara bakmak için");
                         string secim = Console.ReadLine();
@@ -394,7 +396,7 @@ namespace ToDo
                         Console.WriteLine("Büyüklük: " + cardsindone[i].buyukluk);
                         Console.WriteLine(" ");
                         System.Threading.Thread.Sleep(2000);
-
+                        kartBulunmadı = false;
                     bayrak9:
 
                         Console.WriteLine("(1)Bulunan kartı taşıma işlemine devamı için\n(2) diğer kartlara bakmak için");
@@ -438,6 +440,31 @@ namespace ToDo
                             goto bayrak9;
                         }
                     }
+                }
+                if (kartBulunmadı)//hiç kart bulunmazsa
+                {
+                bayrak7:
+                    Console.Clear();
+                    Console.WriteLine("Aradığınız krtiterlere uygun kart board'da bulunamadı. Lütfen bir seçim yapınız.\n* Taşıma sonlandırmak için : (1)\n* Yeniden denemek için : (2)");
+                    
+                        string cevap = Console.ReadLine();
+                        if (cevap == "1")
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Taşıma işleminden çıkılıyor...");
+                        }
+                        else if (cevap == "2")
+                        {
+                            Console.WriteLine("Taşıma menüsüne tekrar aktarılıyorsunuz..");
+                            System.Threading.Thread.Sleep(2000);
+                            goto bayrak8;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Hatalı seçim yaptınız lütfen tekrar deneyiniz..");
+                            System.Threading.Thread.Sleep(2000);
+                            goto bayrak7;
+                        }
                 }
             }
         }
